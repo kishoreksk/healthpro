@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS pharmacy;
+CREATE TABLE pharmacy(id serial PRIMARY KEY, name VARCHAR(255),city VARCHAR(100));
