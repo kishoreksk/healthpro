@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pharmacy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<h1>Pharmacy List</h1>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <form >
+                <div>
+                    <label>Name</label>
+                    <input type="text" th:field="*{name}" id="name" placeholder="Name" class="form-control"/>
+                </div>
+                <div>
+                    <label>City</label>
+                    <input type="text" th:field="*{city}" id="city" placeholder="City" class="form-control"/>
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<!--<label th:text="${pharmacy_name.name}"></label>-->
+<!--<label th:text="${pharmacy_name.city}"></label>-->
+
+
+</body>
+</html>

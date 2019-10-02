@@ -1,12 +1,19 @@
 package com.healthpro.model;
 
+import javax.persistence.*;
 
-
-
+@Entity
+@Table(name = "pharmacy")
 public class Pharmacy {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "city", length = 100)
     private String city;
 
 
@@ -38,10 +45,14 @@ public class Pharmacy {
         this.city = city;
     }
 
+    public Pharmacy() {
+    }
+
     public Pharmacy(Long id, String name, String city) {
         this.id = id;
         this.name = name;
         this.city = city;
+
     }
 
     @Override

@@ -1,11 +1,14 @@
 package com.healthpro.controllers;
 
+import com.healthpro.model.Pharmacy;
 import com.healthpro.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.jws.WebParam;
 
 @Controller
 public class PharmacyController {
@@ -31,4 +34,17 @@ public class PharmacyController {
         model.addAttribute("pharmacy_detail",pharmacyService.getPharmacyDetail());
         return "show_pharmacy_detail";
     }
+
+    @RequestMapping(value = "/save", method = RequestMethod.GET)
+    public String savePharmacy(final Pharmacy pharmacy){
+        pharmacyService.savePharmacy(pharmacy);
+        return "add_pharmacy";
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String editPharmacy(Model model) {
+        return "add_pharmacy";
+    }
+
+
 }

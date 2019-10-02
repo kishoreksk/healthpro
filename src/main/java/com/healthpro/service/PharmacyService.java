@@ -3,6 +3,8 @@ package com.healthpro.service;
 
 import com.healthpro.model.Pharmacy;
 import com.healthpro.model.PharmacyDetail;
+import com.healthpro.repository.PharmacyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
@@ -11,19 +13,28 @@ import java.util.List;
 @Service
 public class PharmacyService {
 
+    @Autowired
+    PharmacyRepository pharmacyRepo;
+
     public Pharmacy getPharmacy() {
         final Pharmacy pharmacy  = new Pharmacy(Long.valueOf(1),"Walgreen","Fremont");
         return pharmacy;
 
     }
 
+//    public List<Pharmacy> getAllPharmacies() {
+//        final List<Pharmacy> pharmacies = new ArrayList<Pharmacy>();
+//        pharmacies.add(new Pharmacy(Long.valueOf(1),"Walgreen","Fremont"));
+//        pharmacies.add(new Pharmacy(Long.valueOf(2),"Walmart","San Francisco"));
+//        pharmacies.add(new Pharmacy(Long.valueOf(3),"Costco","New  York"));
+//        pharmacies.add(new Pharmacy(Long.valueOf(4),"CVS","Washington"));
+//        return pharmacies;
+//    }
+
     public List<Pharmacy> getAllPharmacies() {
-        final List<Pharmacy> pharmacies = new ArrayList<Pharmacy>();
-        pharmacies.add(new Pharmacy(Long.valueOf(1),"Walgreen","Fremont"));
-        pharmacies.add(new Pharmacy(Long.valueOf(2),"Walmart","San Francisco"));
-        pharmacies.add(new Pharmacy(Long.valueOf(3),"Costco","New  York"));
-        pharmacies.add(new Pharmacy(Long.valueOf(4),"CVS","Washington"));
+        final List<Pharmacy> pharmacies = (List<Pharmacy>) pharmacyRepo.findAll();
         return pharmacies;
+
     }
 
     public List<PharmacyDetail> getPharmacyDetail() {
@@ -33,6 +44,14 @@ public class PharmacyService {
         pharmacy_detail.add(new PharmacyDetail(Long.valueOf(3),"Costco","New York","https://www.costco.com/home-delivery"));
         pharmacy_detail.add(new PharmacyDetail(Long.valueOf(4),"CVS","Washington","http://www.cvs.com/"));
         return pharmacy_detail;
+    }
+
+
+
+
+    public Pharmacy savePharmacy(final Pharmacy pharmacy) {
+        return pharmacyRepo.save(pharmacy);
+
     }
 
 
