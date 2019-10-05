@@ -1,25 +1,40 @@
 package com.healthpro.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "doctorsprofile")
 public class DoctorsProfile {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "type", length = 100)
     private String type;
+
+    @Column(name = "speciality", length = 100)
     private String speciality;
 
-    public DoctorsProfile(long id, String name, String type, String speciality) {
+    public DoctorsProfile(Long id, String name, String type, String speciality) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.speciality = speciality;
     }
 
-    public long getId() {
+    public DoctorsProfile() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -11,6 +11,10 @@
 <body>
 <h1>Pharmacy List</h1>
 <div class="container my-2">
+    <div><p class="my-5">
+        <a href="/edit" class="btn btn-primary">
+            <i class="fas fa-user-plus ml-2"> Add Pharmacy </i></a>
+    </p></div>
     <div class="card">
         <div class="card-body">
             <table class="table table-striped table-responsive-md">
@@ -31,8 +35,8 @@
                         <td th:text="${pharmacy.name}"></td>
                         <td th:text="${pharmacy.city}"></td>
 
-                        <td><a><i class="fas fa-user-edit ml-2"></i></a></td>
-                        <td><i class="fas fa-user-times ml-2"></i></td>
+                        <td><a th:href="@{/edit/{id}(id=${pharmacy.id})}"><i class="fas fa-user-edit ml-2"></i></a></td>
+                        <td><a th:href="@{/delete/{id}(id=${pharmacy.id})}"><i class="fas fa-user-times ml-2"></i></a></td>
 
                     </tr>
 

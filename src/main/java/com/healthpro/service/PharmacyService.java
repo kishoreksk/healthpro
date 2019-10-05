@@ -1,14 +1,17 @@
 package com.healthpro.service;
 
-
+import com.healthpro.Exception.RecordNotFoundException;
 import com.healthpro.model.Pharmacy;
 import com.healthpro.model.PharmacyDetail;
 import com.healthpro.repository.PharmacyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PharmacyService {
@@ -50,11 +53,39 @@ public class PharmacyService {
 
 
     public Pharmacy savePharmacy(final Pharmacy pharmacy) {
-        return pharmacyRepo.save(pharmacy);
+        if(pharmacy.getId() == null) {
+            return pharmacyRepo.save(pharmacy);
+        } else {
+            final Optional<Pharmacy> searchPharmacy = pharmacyRepo.findById(pharmacy.getId());
+            if(searchPharmacy.isPresent()){
+                Pharmacy updatePharmacy = searchPharmacy.get();
+                updatePharmacy.setName(pharmacy.getName());
+                updatePharmacy.setCity(pharmacy.getCity());
+                return pharmacyRepo.save(updatePharmacy);
+
+            } else {
+                return pharmacyRepo.save(pharmacy);
+            }
+        }
 
     }
 
+    public Pharmacy getPharmacyById(final Long id) throws RecordNotFoundException {
+        final Optional<Pharmacy> pharmacy = pharmacyRepo.findById(id);
+        if (pharmacy.isPresent()) {
+            return pharmacy.get();
+        } else {
+            throw new RecordNotFoundException("No Pharmacy Record Exists");
+        }
+    }
 
-
+    public void deletePharmacyById(final Long id) throws RecordNotFoundException {
+        final Optional<Pharmacy> searchPharmacy = pharmacyRepo.findById(id);
+        if(searchPharmacy.isPresent()) {
+            pharmacyRepo.deleteById(id);
+        } else {
+            throw new RecordNotFoundException("No Pharmacy Record Exists");
+        }
+    }
 
 }

@@ -1,2 +1,9 @@
 DROP TABLE IF EXISTS pharmacy;
 CREATE TABLE pharmacy(id serial PRIMARY KEY, name VARCHAR(255),city VARCHAR(100));
+
+DROP TABLE IF EXISTS doctorsprofile;
+CREATE TABLE doctorsprofile(id serial PRIMARY KEY, name VARCHAR(255),type VARCHAR(100), speciality VARCHAR (100));
+
+
+DROP TABLE IF EXISTS patientsrecord;
+CREATE TABLE patientsrecord(id serial PRIMARY KEY, name VARCHAR(255),gender VARCHAR(100), age VARCHAR (100), address VARCHAR (100), disease VARCHAR (100), admission VARCHAR (100), discharge VARCHAR (100));

@@ -1,6 +1,7 @@
 package com.healthpro.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "pharmacy")
@@ -45,14 +46,14 @@ public class Pharmacy {
         this.city = city;
     }
 
-    public Pharmacy() {
-    }
-
     public Pharmacy(Long id, String name, String city) {
         this.id = id;
         this.name = name;
         this.city = city;
 
+    }
+
+    public Pharmacy() {
     }
 
     @Override
@@ -64,5 +65,18 @@ public class Pharmacy {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pharmacy pharmacy = (Pharmacy) o;
+        return Objects.equals(id, pharmacy.id) &&
+                Objects.equals(name, pharmacy.name) &&
+                Objects.equals(city, pharmacy.city);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, city);
+    }
 }
