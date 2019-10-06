@@ -31,12 +31,12 @@ public class PatientsService {
             if(searchPatientsRecord.isPresent()) {
                 PatientsRecord updatePatientsRecord = searchPatientsRecord.get();
                 updatePatientsRecord.setName((patientsRecord.getName()));
-                updatePatientsRecord.setName((patientsRecord.getGender()));
-                updatePatientsRecord.setName((patientsRecord.getAge()));
-                updatePatientsRecord.setName((patientsRecord.getAddress()));
-                updatePatientsRecord.setName((patientsRecord.getDisease()));
-                updatePatientsRecord.setName((patientsRecord.getAdmission()));
-                updatePatientsRecord.setName((patientsRecord.getDischarge()));
+                updatePatientsRecord.setGender((patientsRecord.getGender()));
+                updatePatientsRecord.setAge((patientsRecord.getAge()));
+                updatePatientsRecord.setAddress((patientsRecord.getAddress()));
+                updatePatientsRecord.setDisease((patientsRecord.getDisease()));
+                updatePatientsRecord.setAdmission((patientsRecord.getAdmission()));
+                updatePatientsRecord.setDischarge((patientsRecord.getDischarge()));
                 return patientsRepo.save(updatePatientsRecord);
             } else {
                 return patientsRepo.save(patientsRecord);

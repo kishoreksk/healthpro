@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Patients Record</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<h1>Appointments</h1>
+<div class="container my-2">
+    <div class="container my-2">
+        <div><p class="my-5">
+            <a href="/make/appointments/" class="btn btn-primary">
+                <i class="fas fa-user-plus ml-2"> Add Appointment </i></a>
+        </p></div>
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped table-responsive-md">
+                <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Consulting Doctor</th>
+                <th>Disease/Admitted for:</th>
+                <th>Date of Appointment:</th>
+                <th>Time</th>
+
+                </thead>
+                <tbody>
+                <tr th:each="appointment :${show_appointments}">
+                    <td th:text="${appointment.id}"></td>
+                    <td th:text="${appointment.name}"></td>
+                    <td th:text="${appointment.age}"></td>
+                    <td th:text="${appointment.gender}"></td>
+                    <td th:text="${appointment.address}"></td>
+                    <td th:text="${appointment.contact}"></td>
+                    <td th:text="${appointment.doctor}"></td>
+                    <td th:text="${appointment.disease}"></td>
+                    <td th:text="${appointment.date}"></td>
+                    <td th:text="${appointment.time}"></td>
+
+
+
+
+                    <!--<td><a th:href="@{/edit/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-edit ml-2"></i></a></td>-->
+                    <!--<td><a th:href="@{/delete/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-times ml-2"></i></a></td>-->
+                    <!--<td><a th:href="@{/show/patientshistory/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-plus ml-2"></i></a></td>-->
+                </tr>
+                <div><p class="my-5">
+                    <a href="/" class="btn btn-primary">
+                        <i> <-BACK HOME</i></a>
+                </p></div>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

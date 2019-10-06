@@ -28,6 +28,10 @@
                 <th>Disease/Admitted for:</th>
                 <th>Date of Admission</th>
                 <th>Date of Discharge</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>History</th>
+
 
 
 
@@ -43,14 +47,14 @@
                     <td th:text="${patientsRecord.disease}"></td>
                     <td th:text="${patientsRecord.admission}"></td>
                     <td th:text="${patientsRecord.discharge}"></td>
-
-
-
-
                     <td><a th:href="@{/edit/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-edit ml-2"></i></a></td>
                     <td><a th:href="@{/delete/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-times ml-2"></i></a></td>
-
+                    <td><a th:href="@{/show/patientshistory/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-plus ml-2"></i></a></td>
                 </tr>
+                <div><p class="my-5">
+                    <a href="/" class="btn btn-primary">
+                        <i> <-BACK HOME</i></a>
+                </p></div>
 
                 </tbody>
             </table>

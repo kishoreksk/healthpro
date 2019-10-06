@@ -25,8 +25,12 @@
                     <td th:text="${pharmacy.id}"></td>
                     <td th:text="${pharmacy.name}"></td>
                     <td th:text="${pharmacy.city}"></td>
-                    <td> <a th:href="@{${pharmacy.website}}"/target="_blank">Visit Website> </a></td>
+                    <td> <a th:href="@{${pharmacy.website}}"/target="_blank">Order now> </a></td>
                 </tr>
+                <div><p class="my-5">
+                    <a href="/" class="btn btn-primary">
+                        <i> <-BACK HOME</i></a>
+                </p></div>
                 </tbody>
             </table>
         </div>
