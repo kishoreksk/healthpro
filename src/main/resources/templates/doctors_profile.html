@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body>
-<h1>Doctor Profiles</h1>
+<h1><center>Doctor Profiles</center></h1>
 <div class="container my-2">
     <div class="container my-2">
         <div><p class="my-5">
@@ -26,6 +26,9 @@
                 <th>Speciality</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <th>Book Appointment</th>
+                <th>Show Appointments</th>
+
 
 
 
@@ -41,7 +44,8 @@
 
                     <td><a th:href="@{/edit/doctorsprofile/{id}(id=${doctorsprofile.id})}"><i class="fas fa-user-edit ml-2"></i></a></td>
                     <td><a th:href="@{/delete/doctorsprofile/{id}(id=${doctorsprofile.id})}"><i class="fas fa-user-times ml-2"></i></a></td>
-
+                    <td><a th:href="@{/make/appointments/(id=${doctorsprofile.id})}"><i class="btn btn-primary">Make Appointment</i></a></td>
+                    <td><a th:href="@{/show/appointments/(id=${doctorsprofile.id})}"><i class="btn btn-primary">Show Appointments</i></a></td>
                 </tr>
                 <div><p class="my-5">
                     <a href="/" class="btn btn-primary">

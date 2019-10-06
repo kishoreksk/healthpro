@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body>
-<h1>Patients Record</h1>
+<h1><center>Patients Record</center></h1>
 <div class="container my-2">
     <div class="container my-2">
         <div><p class="my-5">
@@ -30,7 +30,7 @@
                 <th>Date of Discharge</th>
                 <th>Edit</th>
                 <th>Delete</th>
-                <th>History</th>
+                <!--<th>History</th>-->
 
 
 
@@ -49,7 +49,7 @@
                     <td th:text="${patientsRecord.discharge}"></td>
                     <td><a th:href="@{/edit/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-edit ml-2"></i></a></td>
                     <td><a th:href="@{/delete/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-times ml-2"></i></a></td>
-                    <td><a th:href="@{/show/patientshistory/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-plus ml-2"></i></a></td>
+                    <!--<td><a th:href="@{/show/patientshistory/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-plus ml-2"></i></a></td>-->
                 </tr>
                 <div><p class="my-5">
                     <a href="/" class="btn btn-primary">
