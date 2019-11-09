@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Doctors Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<h1><center>Doctors Profile</center></h1>
+<div class="card">
+    <div class="card-body">
+        <form action="#" th:action="@{/save/medications/}" th:object="${patients_medications}" method="post">
+
+            <div>
+                <label>Drug Name</label>
+                <input type="text" th:field="*{drug_name}" id="name" placeholder="Drug name" class="form-control"/>
+            </div>
+            <div>
+                <label>Drug Type</label>
+                <input type="text" th:field="*{drug_type}" id="type" placeholder="Syrup/Tablet" class="form-control"/>
+            </div>
+            <div>
+                <label>Dose</label>
+                <input type="text" th:field="*{dose}" id="dose" placeholder="Dose in mg/g" class="form-control"/>
+            </div>
+            <div>
+                <label>Morning/Afternoon/Evening/Night</label>
+                <input type="text" th:field="*{dosage}" id="dosage" placeholder="Dosage per day (0-0-0-0)" class="form-control"/>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+
+            </div>
+            <input type="hidden" id="id" th:field="*{drug_id}">
+
+            <div><p class="my-5">
+                <a href="/show/medications/" class="btn btn-primary">
+                    <i> <-BACK HOME</i></a>
+            </p></div>
+
+        </form>
+
+    </div>
+</div>
+</div>
+<!--<label th:text="${pharmacy_name.name}"></label>-->
+<!--<label th:text="${pharmacy_name.city}"></label>-->
+
+</body>
+</html>

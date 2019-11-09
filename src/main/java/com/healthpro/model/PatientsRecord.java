@@ -32,12 +32,27 @@ public class PatientsRecord {
     @Column(name = "discharge")
     private String discharge;
 
+    @Column(name = "bloodgroup")
+    private String bloodgroup;
+
+    @Column(name = "drug_name")
+    private String drug_name;
+
+    @Column(name = "drug_type")
+    private String drug_type;
+
+    @Column(name = "dose")
+    private String dose;
+
+    @Column(name = "dosage")
+    private String dosage;
+
 
     public PatientsRecord() {
     }
 
-    public PatientsRecord(Long id, String name, String gender, String age, String address, String disease, String admission, String discharge) {
-        this.id = id;
+
+    public PatientsRecord(String name, String gender, String age, String address, String disease, String admission, String discharge, String bloodgroup, String drug_name, String drug_type, String dose, String dosage) {
         this.name = name;
         this.gender = gender;
         this.age = age;
@@ -45,6 +60,11 @@ public class PatientsRecord {
         this.disease = disease;
         this.admission = admission;
         this.discharge = discharge;
+        this.bloodgroup = bloodgroup;
+        this.drug_name = drug_name;
+        this.drug_type = drug_type;
+        this.dose = dose;
+        this.dosage = dosage;
     }
 
     public Long getId() {
@@ -111,19 +131,46 @@ public class PatientsRecord {
         this.discharge = discharge;
     }
 
-    @Override
-    public String toString() {
-        return "PatientsRecord{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age='" + age + '\'' +
-                ", address='" + address + '\'' +
-                ", disease='" + disease + '\'' +
-                ", admission='" + admission + '\'' +
-                ", discharge='" + discharge + '\'' +
-                '}';
+    public String getBloodgroup() {
+        return bloodgroup;
     }
+
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
+    }
+
+    public String getDrug_name() {
+        return drug_name;
+    }
+
+    public void setDrug_name(String drug_name) {
+        this.drug_name = drug_name;
+    }
+
+    public String getDrug_type() {
+        return drug_type;
+    }
+
+    public void setDrug_type(String drug_type) {
+        this.drug_type = drug_type;
+    }
+
+    public String getDose() {
+        return dose;
+    }
+
+    public void setDose(String dose) {
+        this.dose = dose;
+    }
+
+    public String getDosage() {
+        return dosage;
+    }
+
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -137,11 +184,36 @@ public class PatientsRecord {
                 Objects.equals(address, that.address) &&
                 Objects.equals(disease, that.disease) &&
                 Objects.equals(admission, that.admission) &&
-                Objects.equals(discharge, that.discharge);
+                Objects.equals(discharge, that.discharge) &&
+                Objects.equals(bloodgroup, that.bloodgroup) &&
+                Objects.equals(drug_name, that.drug_name) &&
+                Objects.equals(drug_type, that.drug_type) &&
+                Objects.equals(dose, that.dose) &&
+                Objects.equals(dosage, that.dosage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, gender, age, address, disease, admission, discharge);
+        return Objects.hash(id, name, gender, age, address, disease, admission, discharge, bloodgroup, drug_name, drug_type, dose, dosage);
+    }
+
+    @Override
+    public String toString() {
+        return "PatientsRecord{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age='" + age + '\'' +
+                ", address='" + address + '\'' +
+                ", disease='" + disease + '\'' +
+                ", admission='" + admission + '\'' +
+                ", discharge='" + discharge + '\'' +
+                ", bloodgroup='" + bloodgroup + '\'' +
+                ", drug_name='" + drug_name + '\'' +
+                ", drug_type='" + drug_type + '\'' +
+                ", dose='" + dose + '\'' +
+                ", dosage='" + dosage + '\'' +
+                '}';
     }
 }
+

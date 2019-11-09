@@ -19,8 +19,8 @@ public class PatientsService {
     PatientsRepository patientsRepo;
 
     public List<PatientsRecord> getAllPatientsRecord(){
-        final List<PatientsRecord> patientsRecord = (List<PatientsRecord>) patientsRepo.findAll();
-        return patientsRecord;
+        final List<PatientsRecord> patientsRecords = (List<PatientsRecord>) patientsRepo.findAll();
+        return patientsRecords;
     }
 
     public PatientsRecord savePatientsRecord(final PatientsRecord patientsRecord) {
@@ -37,6 +37,12 @@ public class PatientsService {
                 updatePatientsRecord.setDisease((patientsRecord.getDisease()));
                 updatePatientsRecord.setAdmission((patientsRecord.getAdmission()));
                 updatePatientsRecord.setDischarge((patientsRecord.getDischarge()));
+                updatePatientsRecord.setBloodgroup(patientsRecord.getBloodgroup());
+                updatePatientsRecord.setDrug_name(patientsRecord.getDrug_name());
+                updatePatientsRecord.setDrug_type(patientsRecord.getDrug_type());
+                updatePatientsRecord.setDose(patientsRecord.getDose());
+                updatePatientsRecord.setDosage(patientsRecord.getDosage());
+
                 return patientsRepo.save(updatePatientsRecord);
             } else {
                 return patientsRepo.save(patientsRecord);

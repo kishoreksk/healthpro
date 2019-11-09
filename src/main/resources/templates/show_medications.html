@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Patients Record</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/show/doctorsprofile/">Show Doctors</a></li>
+            <li><a href="/showAll">Show Pharmacy</a></li>
+            <li><a href="/show/detail/">Online Store</a></li>
+            <li><a href="/show/patientsrecord/">Show Patients Record</a></li>
+            <li><a href="/show/appointments/">Show Appointments</a></li>
+            <li><a href="/make/appointments/">Make Appointment</a></li>
+        </ul>
+        <form class="navbar-form navbar-left" action="/search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container my-2">
+<div class="container my-2">
+
+    <h1><center>Current Medications</center></h1>
+
+    <div class="card">
+        <div class="search-list">
+            <table class="table table-striped table-responsive-md" >
+                <thead>
+                <th>Id</th>
+                <th>Drug Name</th>
+                <th>Drug Type(Tablet/Syrup)</th>
+                <th>Dose</th>
+                <th>Morning/Afternoon/Evening/Night</th>
+
+                </thead>
+                <tbody>
+                <tr th:each="medicationsList :${patients_medications}">
+                    <td th:text="${medicationsList.drug_id}"></td>
+                    <td th:text="${medicationsList.drug_name}"></td>
+                    <td th:text="${medicationsList.drug_type}"></td>
+                    <td th:text="${medicationsList.dose}"></td>
+                    <td th:text="${medicationsList.dosage}"></td>
+                    <!--<td><a th:href="@{/edit/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-edit ml-2"></i></a></td>-->
+                    <!--<td><a th:href="@{/delete/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-times ml-2"></i></a></td>-->
+                    <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
+                </tr>
+
+
+
+
+            </table>
+        </div>
+    </div>
+    <h1><center>Reconciliation Medications</center></h1>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped table-responsive-md" id="myTable">
+                <thead>
+                <th>Id</th>
+                <th>Drug Name</th>
+                <th>Drug Type(Tablet/Syrup)</th>
+                <th>Dose</th>
+                <th>Morning/Afternoon/Evening/Night</th>
+
+                </thead>
+                <tbody>
+                <tr th:each="medicationsList :${patients_medications}">
+                    <td th:text="${medicationsList.drug_id}"></td>
+                    <td th:text="${medicationsList.drug_name}"></td>
+                    <td th:text="${medicationsList.drug_type}"></td>
+                    <td th:text="${medicationsList.dose}"></td>
+                    <td th:text="${medicationsList.dosage}"></td>
+                    <td><a th:href="@{/edit/medications/{id}(id=${medicationsList.drug_id})}"><i class="fas fa-edit ml-2"></i></a></td>
+                    <td><a th:href="@{/delete/medications/{id}(id=${medicationsList.drug_id})}"><i class="fas fa-times ml-2"></i></a></td>
+                    <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
+                </tr>
+                <div class="container my-2">
+                    <div class="container my-2">
+                        <div><p class="my-5">
+                            <a href="/edit/medications/" class="btn btn-primary">
+                                <i class="fas fa-plus ml-2"> Add Medications </i></a>
+                        </p></div>
+
+
+
+
+                    </div></div></table>
+        </div></div>
+    <div class="container my-2">
+        <div class="container my-2">
+            <div><p class="my-5">
+                <a href="/show/patientsrecord/" class="btn btn-primary">
+                    <i class="fas fa ml-2"> Approve </i></a>
+            </p></div>
+</div>
+</div>
+</body>
+</html>
+
+

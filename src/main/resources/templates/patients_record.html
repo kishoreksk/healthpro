@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Patients Record</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/show/doctorsprofile/">Show Doctors</a></li>
+            <li><a href="/showAll">Show Pharmacy</a></li>
+            <li><a href="/show/detail/">Online Store</a></li>
+            <li><a href="/show/patientsrecord/">Show Patients Record</a></li>
+            <li><a href="/show/appointments/">Show Appointments</a></li>
+            <li><a href="/make/appointments/">Make Appointment</a></li>
+        </ul>
+        <form class="navbar-form navbar-left" action="/search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</nav>
 <h1><center>Patients Record</center></h1>
 <div class="container my-2">
     <div class="container my-2">
@@ -47,14 +72,12 @@
                     <td th:text="${patientsRecord.disease}"></td>
                     <td th:text="${patientsRecord.admission}"></td>
                     <td th:text="${patientsRecord.discharge}"></td>
+
                     <td><a th:href="@{/edit/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-edit ml-2"></i></a></td>
                     <td><a th:href="@{/delete/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-times ml-2"></i></a></td>
-                    <!--<td><a th:href="@{/show/patientshistory/{id}(id=${patientsRecord.id})}"><i class="fas fa-user-plus ml-2"></i></a></td>-->
+                    <td><a th:href="@{/show/patientsrecord/{id}(id=${patientsRecord.id})}"><i class="btn btn-primary">Show Details</i></a></td>
                 </tr>
-                <div><p class="my-5">
-                    <a href="/" class="btn btn-primary">
-                        <i> <-BACK HOME</i></a>
-                </p></div>
+
 
                 </tbody>
             </table>

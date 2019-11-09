@@ -73,6 +73,7 @@ public List<DoctorsProfile> getAllDoctorProfiles() {
             doctorsRepo.deleteById(id);
         } else {
             throw new RecordNotFoundException("No Doctors Profile Record Exists");
+
         }
     }
 
