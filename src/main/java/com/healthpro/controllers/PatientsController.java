@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -84,5 +85,22 @@ public class PatientsController {
 //        patientService.savePatientsRecord(patientsRecord);
 //        return "redirect:/show/patientsmedications/{id}";
 //    }
+
+//    @RequestMapping(value = "/search/patientsrecord/{name}", method = RequestMethod.GET)
+//    public String searchPatientsRecordByname(@RequestParam(value = "search", required = false) String name, Model model) throws RecordNotFoundException{
+//        model.addAttribute("students_profile", patientService.getPatientsRecordByName(name));
+//        return "students";
+//    }
+
+    @RequestMapping(value = "/search/studentsprofile/{id}", method = RequestMethod.GET)
+    public String searchPatientsRecordById(@RequestParam(value = "search", required = false) Long id, Model model) throws RecordNotFoundException{
+        model.addAttribute("students_profile", patientService.getPatientRecordById(id));
+        return "patients_details";
+    }
+
+
+
+
+
 }
 

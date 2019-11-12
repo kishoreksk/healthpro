@@ -2,7 +2,9 @@ package com.healthpro.model;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "patientsrecord")
@@ -35,8 +37,8 @@ public class PatientsRecord {
     @Column(name = "bloodgroup")
     private String bloodgroup;
 
-    @Column(name = "drug_name")
-    private String drug_name;
+    @Column(name = "med_id")
+    private int med_id;
 
     @Column(name = "drug_type")
     private String drug_type;
@@ -47,12 +49,25 @@ public class PatientsRecord {
     @Column(name = "dosage")
     private String dosage;
 
+//    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = {
+//                    CascadeType.PERSIST,
+//                    CascadeType.MERGE
+//            })
+//    @JoinTable(name = "patient_medications",
+//            joinColumns = { @JoinColumn(name = "patient_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "medications_id") })
+//    private Set<PatientsRecord> patientsRecords = new HashSet<>();
+
+
+
+
 
     public PatientsRecord() {
     }
 
 
-    public PatientsRecord(String name, String gender, String age, String address, String disease, String admission, String discharge, String bloodgroup, String drug_name, String drug_type, String dose, String dosage) {
+    public PatientsRecord(String name, String gender, String age, String address, String disease, String admission, String discharge, String bloodgroup, int med_id, String drug_type, String dose, String dosage) {
         this.name = name;
         this.gender = gender;
         this.age = age;
@@ -61,7 +76,7 @@ public class PatientsRecord {
         this.admission = admission;
         this.discharge = discharge;
         this.bloodgroup = bloodgroup;
-        this.drug_name = drug_name;
+        this.med_id = med_id;
         this.drug_type = drug_type;
         this.dose = dose;
         this.dosage = dosage;
@@ -139,12 +154,12 @@ public class PatientsRecord {
         this.bloodgroup = bloodgroup;
     }
 
-    public String getDrug_name() {
-        return drug_name;
+    public int getDrug_name() {
+        return med_id;
     }
 
-    public void setDrug_name(String drug_name) {
-        this.drug_name = drug_name;
+    public void setDrug_name(int drug_name) {
+        this.med_id = drug_name;
     }
 
     public String getDrug_type() {
@@ -186,7 +201,7 @@ public class PatientsRecord {
                 Objects.equals(admission, that.admission) &&
                 Objects.equals(discharge, that.discharge) &&
                 Objects.equals(bloodgroup, that.bloodgroup) &&
-                Objects.equals(drug_name, that.drug_name) &&
+                Objects.equals(med_id, that.med_id) &&
                 Objects.equals(drug_type, that.drug_type) &&
                 Objects.equals(dose, that.dose) &&
                 Objects.equals(dosage, that.dosage);
@@ -194,7 +209,7 @@ public class PatientsRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, gender, age, address, disease, admission, discharge, bloodgroup, drug_name, drug_type, dose, dosage);
+        return Objects.hash(id, name, gender, age, address, disease, admission, discharge, bloodgroup, med_id, drug_type, dose, dosage);
     }
 
     @Override
@@ -209,7 +224,7 @@ public class PatientsRecord {
                 ", admission='" + admission + '\'' +
                 ", discharge='" + discharge + '\'' +
                 ", bloodgroup='" + bloodgroup + '\'' +
-                ", drug_name='" + drug_name + '\'' +
+                ", drug_name='" + med_id + '\'' +
                 ", drug_type='" + drug_type + '\'' +
                 ", dose='" + dose + '\'' +
                 ", dosage='" + dosage + '\'' +

@@ -36,6 +36,10 @@
 </nav>
 <div class="container my-2">
 <div class="container my-2">
+    <div><p class="my-5">
+        <a href="/edit/prescription/" class="btn btn-primary">
+            <i class="fas fa-user-plus ml-2"> Add Prescriptions </i></a>
+    </p></div>
 
     <h1><center>Current Medications</center></h1>
 
@@ -43,20 +47,20 @@
         <div class="search-list">
             <table class="table table-striped table-responsive-md" >
                 <thead>
-                <th>Id</th>
-                <th>Drug Name</th>
-                <th>Drug Type(Tablet/Syrup)</th>
+                <th>Physician Id</th>
+                <th>Patient Id</th>
+                <th>Medication Id</th>
                 <th>Dose</th>
                 <th>Morning/Afternoon/Evening/Night</th>
 
                 </thead>
                 <tbody>
-                <tr th:each="medicationsList :${patients_medications}">
-                    <td th:text="${medicationsList.drug_id}"></td>
-                    <td th:text="${medicationsList.drug_name}"></td>
-                    <td th:text="${medicationsList.drug_type}"></td>
-                    <td th:text="${medicationsList.dose}"></td>
-                    <td th:text="${medicationsList.dosage}"></td>
+                <tr th:each="prescriptions :${show_prescription}">
+                    <td th:text="${show_prescription.physician}"></td>
+                    <td th:text="${show_prescription.patient}"></td>
+                    <td th:text="${show_prescription.medication}"></td>
+                    <td th:text="${show_prescription.dose}"></td>
+                    <td th:text="${show_prescription.dosage}"></td>
                     <!--<td><a th:href="@{/edit/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-edit ml-2"></i></a></td>-->
                     <!--<td><a th:href="@{/delete/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-times ml-2"></i></a></td>-->
                     <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
@@ -65,53 +69,15 @@
 
 
 
-            </table>
-        </div>
-    </div>
-    <h1><center>Reconciliation Medications</center></h1>
-
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-striped table-responsive-md" id="myTable">
-                <thead>
-                <th>Id</th>
-                <th>Drug Name</th>
-                <th>Drug Type(Tablet/Syrup)</th>
-                <th>Dose</th>
-                <th>Morning/Afternoon/Evening/Night</th>
-
-                </thead>
-                <tbody>
-                <tr th:each="medicationsList :${patients_medications}">
-                    <td th:text="${medicationsList.drug_id}"></td>
-                    <td th:text="${medicationsList.drug_name}"></td>
-                    <td th:text="${medicationsList.drug_type}"></td>
-                    <td th:text="${medicationsList.dose}"></td>
-                    <td th:text="${medicationsList.dosage}"></td>
-                    <td><a th:href="@{/edit/medications/{id}(id=${medicationsList.drug_id})}"><i class="btn btn-info">Edit<span class="glyphicon glyphicon-edit"></span></i></a></td>
-                    <td><button onclick="this.disabled='disabled';"class="btn btn-success">Approve<span class="glyphicon glyphicon-ok"></span></button></td>
-
-                    <td><a th:href="@{/delete/medications/{id}(id=${medicationsList.drug_id})}"><i class="btn btn-danger">Reject <span class="glyphicon glyphicon-remove-sign"></span></i></a></td>
-
-                    <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
-                </tr>
-                <div class="container my-2">
-                    <div class="container my-2">
-                        <div><p class="my-5">
-                            <a href="/edit/medications/" class="btn btn-primary">
-                                <i class="fas fa-plus ml-2"> Add Medications </i></a>
-                        </p></div>
 
 
-
-
-                    </div></div></table>
+                    </table>
         </div></div>
     <div class="container my-2">
         <div class="container my-2">
             <div><p class="my-5">
-                <a href="/show/patientsrecord/" class="btn btn-success">
-                    <i class="fas fa ml-2"> Approve All </i><span class="glyphicon glyphicon-saved"></span></a>
+                <a href="/show/medications/" class="btn btn-success">
+                    <i class="fas fa ml-2"> Reconcile Medications </i><span class="glyphicon glyphicon-pencil"></span></a>
 
             </p></div>
 </div>

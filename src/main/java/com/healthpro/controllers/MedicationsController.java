@@ -23,6 +23,12 @@ public class MedicationsController {
         model.addAttribute("patients_medications", medicationsService.getAllPatientsMedications());
         return "show_medications";
     }
+
+    @RequestMapping(value = "reconcile/medications/",method = RequestMethod.GET)
+    public String reconcileMedications(Model model){
+        model.addAttribute("patients_medications", medicationsService.getAllPatientsMedications());
+        return "medications";
+    }
     @RequestMapping(value = {"/show/medications/{id}"}, method = RequestMethod.GET)
     public String showPatientsMedications(Model model, @PathVariable("id") Optional<Long> id) throws RecordNotFoundException {
         if (id.isPresent()) {
@@ -36,7 +42,7 @@ public class MedicationsController {
     @RequestMapping(value = "/save/medications/", method = RequestMethod.POST)
     public String savePatientsRecord(final Medications medications) {
         medicationsService.savePatientsMedications(medications);
-        return "redirect:/show/medications/";
+        return "redirect:/reconcile/medications/";
     }
 
     @RequestMapping(value = {"/edit/medications/", "/edit/medications/{id}"}, method = RequestMethod.GET)
@@ -53,8 +59,10 @@ public class MedicationsController {
     @RequestMapping(value = "/delete/medications/{id}")
     public String deletePatientsRecordById(Model model, @PathVariable("id") Long id) throws RecordNotFoundException {
         medicationsService.deletePatientsRecordById(id);
-        return "redirect:/show/medications/";
+        return "redirect:/reconcile/medications/";
     }
+
+
 
 
 }

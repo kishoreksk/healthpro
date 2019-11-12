@@ -1,7 +1,9 @@
 package com.healthpro.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "medications")
@@ -22,6 +24,15 @@ public class Medications {
 
     @Column(name="dosage")
         private String dosage;
+
+
+//    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = {
+//                    CascadeType.PERSIST,
+//                    CascadeType.MERGE
+//            },
+//            mappedBy = "medications")
+//    private Set<Medications> medications = new HashSet<>();
 
 
     public Medications() {

@@ -35,84 +35,53 @@
     </div>
 </nav>
 <div class="container my-2">
-<div class="container my-2">
+    <div class="container my-2">
 
-    <h1><center>Current Medications</center></h1>
+        <h1><center>Current Medications</center></h1>
 
-    <div class="card">
-        <div class="search-list">
-            <table class="table table-striped table-responsive-md" >
-                <thead>
-                <th>Id</th>
-                <th>Drug Name</th>
-                <th>Drug Type(Tablet/Syrup)</th>
-                <th>Dose</th>
-                <th>Morning/Afternoon/Evening/Night</th>
+        <div class="card">
+            <div class="search-list">
+                <table class="table table-striped table-responsive-md" >
+                    <thead>
+                    <th>Id</th>
+                    <th>Drug Name</th>
+                    <th>Drug Type(Tablet/Syrup)</th>
+                    <th>Dose</th>
+                    <th>Morning/Afternoon/Evening/Night</th>
 
-                </thead>
-                <tbody>
-                <tr th:each="medicationsList :${patients_medications}">
-                    <td th:text="${medicationsList.drug_id}"></td>
-                    <td th:text="${medicationsList.drug_name}"></td>
-                    <td th:text="${medicationsList.drug_type}"></td>
-                    <td th:text="${medicationsList.dose}"></td>
-                    <td th:text="${medicationsList.dosage}"></td>
-                    <!--<td><a th:href="@{/edit/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-edit ml-2"></i></a></td>-->
-                    <!--<td><a th:href="@{/delete/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-times ml-2"></i></a></td>-->
-                    <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
-                </tr>
-
-
+                    </thead>
+                    <tbody>
+                    <tr th:each="medicationsList :${patients_medications}">
+                        <td th:text="${medicationsList.drug_id}"></td>
+                        <td th:text="${medicationsList.drug_name}"></td>
+                        <td th:text="${medicationsList.drug_type}"></td>
+                        <td th:text="${medicationsList.dose}"></td>
+                        <td th:text="${medicationsList.dosage}"></td>
+                        <!--<td><a th:href="@{/edit/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-edit ml-2"></i></a></td>-->
+                        <!--<td><a th:href="@{/delete/medications/{id}(id=${patients_medications.drug_id})}"><i class="fas fa-user-times ml-2"></i></a></td>-->
+                        <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
+                    </tr>
 
 
-            </table>
-        </div>
-    </div>
-    <h1><center>Reconciliation Medications</center></h1>
 
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-striped table-responsive-md" id="myTable">
-                <thead>
-                <th>Id</th>
-                <th>Drug Name</th>
-                <th>Drug Type(Tablet/Syrup)</th>
-                <th>Dose</th>
-                <th>Morning/Afternoon/Evening/Night</th>
 
-                </thead>
-                <tbody>
-                <tr th:each="medicationsList :${patients_medications}">
-                    <td th:text="${medicationsList.drug_id}"></td>
-                    <td th:text="${medicationsList.drug_name}"></td>
-                    <td th:text="${medicationsList.drug_type}"></td>
-                    <td th:text="${medicationsList.dose}"></td>
-                    <td th:text="${medicationsList.dosage}"></td>
-                    <td><a th:href="@{/edit/medications/{id}(id=${medicationsList.drug_id})}"><i class="fas fa-edit ml-2"></i></a></td>
-                    <td><a th:href="@{/delete/medications/{id}(id=${medicationsList.drug_id})}"><i class="fas fa-times ml-2"></i></a></td>
-                    <!--<td><a th:href="@{/show/studentsprofile/{id}(id=${patients_medications.drug_id})}"><i class="btn btn-primary">Show Details</i></a></td>-->
-                </tr>
+                </table>
                 <div class="container my-2">
                     <div class="container my-2">
                         <div><p class="my-5">
-                            <a href="/edit/medications/" class="btn btn-primary">
-                                <i class="fas fa-plus ml-2"> Add Medications </i></a>
+                            <a href="/reconcile/medications/" class="btn btn-primary">
+                                <i class="fas fa ml-2"> Reconcile Medications </i><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="/show/patientsrecord/" class="btn btn-success">
+                                <i class="fas fa ml-2"> Approve Without Reconcile </i><span class="glyphicon glyphicon-saved"></span></a>
+
+                        </p></div>
                         </p></div>
 
-
-
-
-                    </div></div></table>
-        </div></div>
-    <div class="container my-2">
-        <div class="container my-2">
-            <div><p class="my-5">
-                <a href="/show/patientsrecord/" class="btn btn-primary">
-                    <i class="fas fa ml-2"> Approve </i></a>
-            </p></div>
+            </div>
+        </div>
+    </div></div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</body>
-</html>
-
-
+</body></html>

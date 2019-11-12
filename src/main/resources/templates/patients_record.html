@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
 </head>
 </head>
 <body>
@@ -43,7 +49,60 @@
         </p></div>
     <div class="card">
         <div class="card-body">
-            <table class="table table-striped table-responsive-md">
+            <div class="table table-view ">
+
+                <div class="container search-table">
+                    <div class="search-box">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4>Search Patients:</h4>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search Patients by Name/Id/Date/Disease">
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#myInput").on("keyup", function () {
+                                            var value = $(this).val().toLowerCase();
+                                            $("#myTable tr").filter(function () {
+                                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                            });
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .search-table{
+                            padding: 7%;
+                            margin-top: -6%;
+                            margin-left: -5%;
+                        }
+                        .search-box{
+                            background: #eeeeee;
+                            border: 1px #ababab;
+                            padding: 3%;
+                        }
+                        .search-box input:focus{
+                            box-shadow:none;
+                            border:1px  #eeeeee;
+                        }
+                        .search-list{
+                            background: #fff;
+                            border: 1px #ababab;
+                            border-top: none;
+                        }
+                        .search-list h3{
+                            background: #eee;
+                            padding: 3%;
+                            margin-bottom: 0%;
+                        }
+
+                    </style>
+                    <div class="card">
+                        <div class="search-list">
+                            <table class="table table-striped table-responsive-md" id="myTable">
+
                 <thead>
                 <th>Id</th>
                 <th>Name</th>
@@ -85,6 +144,9 @@
     </div>
 </div>
 </div>
-
+    </div>
+</div>
+    </div>
+</div>
 </body>
 </html>
